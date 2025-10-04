@@ -21,7 +21,7 @@ export default function Footer() {
             {/* logo */}
             <div className="flex-shrink-0 rounded-full flex items-center justify-center">
               <img
-                src="./images/navBarLogo.png"
+                src="./images/fullLogo.png"
                 alt="Sangam Jewellers Logo"
                 className="w-36 h-36 object-contain"
               />
@@ -77,14 +77,16 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-2">
             <h4 className="text-lg font-medium">Address</h4>
             <address className="not-italic text-sm leading-relaxed">
-              Near Reliance Trends<br />
-              Farenda Road<br />
-              Maharajganj, Uttar Pradesh
+              Sangam Jewllers<br />
+              Tedwa Kuti, Near Reliance Trends<br />
+              Farenda Road, Maharajganj<br />
+              Uttar Pradesh, India<br />
+              Pincode: 273301
             </address>
 
             {/* Social icons row */}
             <div className="mt-1 flex items-center gap-4">
-              <a href="https://instagram.com" aria-label="Instagram" className="p-2 rounded-full hover:bg-white/5 transition">
+              <a href="https://www.instagram.com/sangam_jewellers___?igsh=YTFlY2tmeTg3bW5x" aria-label="Instagram" className="p-2 rounded-full hover:bg-white/5 transition">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#d8b466" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
@@ -98,9 +100,10 @@ export default function Footer() {
                 </svg>
               </a>
 
-              <a href="https://twitter.com" aria-label="X / Twitter" className="p-2 rounded-full hover:bg-white/5 transition">
+              <a href="https://wa.me/8279422731" aria-label="WhatsApp" className="p-2 rounded-full hover:bg-white/5 transition">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#d8b466" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 7v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                <path d="M12 2C6.48 2 2 6.48 2 12a9.95 9.95 0 0 0 1.63 5.36L2 22l4.85-1.61A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M15.1 14.85c-.2-.1-1.1-.55-1.3-.6-.2-.05-.4 0-.5.15-.1.2-.4.5-.5.6-.1.1-.2.15-.4.05-.6-.3-1.8-1.1-2.3-2.1-.05-.1 0-.2.1-.3.1-.1.2-.2.3-.3.1-.1.1-.2.2-.3s0-.2 0-.3c0-.2-.5-1.2-.6-1.6s-.35-.3-.45-.3h-.4c-.2 0-.4.1-.6.3s-.6.5-.6 1.4c0 .9.6 1.7.7 1.9.1.1 1.5 2.5 4 3.4.6.2 1 .35 1.3.45.5.2.9.15 1.2.1.4-.1 1-.5 1.2-1 .1-.4.1-.7.1-.8-.1-.1-.2-.15-.4-.2z"/>
                 </svg>
               </a>
 
@@ -123,7 +126,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <p className="text-[#d8b466] text-sm md:text-base font-serif">
             Sangam Jewellers - Copyright © {new Date().getFullYear()} All Rights Reserved.
-            Designed &amp; Developed by Deepak Verma
+            Designed &amp; Developed by Aashish Gangwar
           </p>
         </div>
       </div>
