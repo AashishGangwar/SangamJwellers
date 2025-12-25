@@ -107,7 +107,7 @@ export default function Footer() {
                 </svg>
               </a>
 
-              <a href="https://maps.google.com" aria-label="Open in Maps" className="p-2 rounded-full hover:bg-white/5 transition">
+              <a href="https://maps.app.goo.gl/2jZaUN6Ymh4SW1cC6" aria-label="Open in Maps" className="p-2 rounded-full hover:bg-white/5 transition">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#d8b466" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 6-9 11-9 11S3 16 3 10a9 9 0 0118 0z" />
                   <circle cx="12" cy="10" r="3" />
@@ -126,7 +126,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <p className="text-[#d8b466] text-sm md:text-base font-serif">
             Sangam Jewellers - Copyright © {new Date().getFullYear()} All Rights Reserved.
-            Designed &amp; Developed by Aashish Gangwar
+            Designed &amp; Developed by <a href="https://www.linkedin.com/in/aashish-gangwar/" className="font-bold italic">Aashish Gangwar</a>
           </p>
         </div>
       </div>

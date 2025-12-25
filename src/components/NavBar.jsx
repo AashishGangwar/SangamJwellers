@@ -1,26 +1,52 @@
 // NavBar.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function NavBar() {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const readCounts = () => {
+      try {
+        const raw = localStorage.getItem("cart");
+        const items = raw ? JSON.parse(raw) : [];
+        const count = Array.isArray(items)
+          ? items.reduce((n, it) => n + Math.max(1, Number(it.qty ?? 1)), 0)
+          : 0;
+        setCartCount(count);
+      } catch {
+        setCartCount(0);
+      }
+    };
+    readCounts();
+    const onStorage = (e) => {
+      if (e.key === "cart" || e.key === null) readCounts();
+    };
+    window.addEventListener("storage", onStorage);
+    window.addEventListener("focus", readCounts);
+    return () => {
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener("focus", readCounts);
+    };
+  }, []);
   const categories = [
     "Fresh Arrivals",
     "Best Sellers",
-    "Gifting",
-    "Rings",
-    "Necklaces",
-    "Earrings",
+    "Fine Silver",
+    "Gifting Jewellery",
+    "Wedding",
+    "Engagement",
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Main bar */}
-      <nav className="bg-[#1e3532]/95 backdrop-blur-sm border-b border-[#D3AF37]/20 shadow-md">
+      <nav className="bg-[#1e3532] border-b border-[#D3AF37]/20 shadow-md">
         <div className="mx-auto max-w-7xl px-6 py-3">
           {/* Grid with 3 columns: logo | search | icons */}
           <div className="grid grid-cols-3 items-center gap-4">
             {/* Left: Logo + brand */}
             <div className="flex items-center space-x-3">
-              <a href="/" className="flex items-center">
+              <a href="#/" className="flex items-center">
                 <img
                   src="./images/centerLogo.png"
                   alt="Sangam Jewellers Logo"
@@ -81,7 +107,6 @@ export default function NavBar() {
                 </div>
               </form>
             </div>
-
             {/* Right: Icons (profile, wishlist, cart) */}
             <div className="flex justify-end items-center space-x-3">
 
@@ -90,6 +115,7 @@ export default function NavBar() {
                 className="inline-flex items-center rounded-lg px-3 py-2 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#D3AF37]/40"
                 aria-label="Wishlist"
                 title="Wishlist"
+                onClick={() => { window.location.hash = "/wishlist"; }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,6 +133,9 @@ export default function NavBar() {
                 className="relative inline-flex items-center rounded-lg px-3 py-2 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#D3AF37]/40"
                 aria-label="Cart"
                 title="Cart"
+                onClick={() => {
+                  window.location.hash = "/cart";
+                }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +152,11 @@ export default function NavBar() {
                 </svg>
 
                 {/* small cart badge (example count) */}
-                <span className="absolute -top-1 -right-1 inline-flex items-center justify-center rounded-full bg-[#D3AF37] px-1.5 py-0.5 text-[10px] font-semibold text-[#0b0b0b]">
-                  2
-                </span>
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 inline-flex items-center justify-center rounded-full bg-[#D3AF37] px-1.5 py-0.5 text-[10px] font-semibold text-[#0b0b0b]">
+                    {cartCount}
+                  </span>
+                )}
               </button>
 
               {/* Profile */}
@@ -159,16 +190,22 @@ export default function NavBar() {
           </div>
         </div>
 
-        {/* Categories row (secondary nav) */}
         <div className="border-t border-[#D3AF37]/10">
           <div className="mx-auto max-w-7xl px-6 py-2">
             <div className="flex items-center justify-center gap-3 overflow-x-auto">
               {categories.map((c) => {
-                const isHighlighted = c === "Fresh Arrivals" || c === "Best Sellers";
+                const isHighlighted = c === "Fresh Arrivals" || c === "Best Sellers" || c === "Fine Silver" || c === "Gifting Jewellery";
+                const routeMap = {
+                  "Fresh Arrivals": "/fresh-arrivals",
+                  "Best Sellers": "/best-sellers",
+                  "Fine Silver": "/silver",
+                  "Gifting Jewellery": "/artificial",
+                };
+                const href = routeMap[c] ? `#${routeMap[c]}` : `/#${c.replace(/\s+/g, "-").toLowerCase()}`;
                 return (
                   <a
                     key={c}
-                    href={`/#${c.replace(/\s+/g, "-").toLowerCase()}`}
+                    href={href}
                     className={`whitespace-nowrap rounded-md border px-4 py-2 text-sm font-medium ${
                       isHighlighted
                         ? "border-[#D3AF37] bg-white/5 text-[#D3AF37]"

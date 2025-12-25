@@ -31,7 +31,7 @@ export default function CategoryCard({
       }}
     >
       {/* optional translucent overlay to make text/buttons pop */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none" />
 
       {/* center image wrapper - we use group-hover on parent to trigger zoom */}
       <div className="relative z-10 h-full flex items-center justify-center px-6">
@@ -57,7 +57,7 @@ export default function CategoryCard({
       <div className="absolute right-4 bottom-4 z-20 flex">
         <button
           onClick={onClick}
-          className="w-full flex py-2 px-4 rounded-lg bg-[#f3e9dd] text-[#1e3532] font-bold shadow-md hover:brightness-120 transition"
+          className="w-full flex py-2 px-4 rounded-lg bg-[#1e3532] text-[#f3e9dd] font-bold shadow-md hover:brightness-120 transition"
           type="button"
         >
           {ctaText}

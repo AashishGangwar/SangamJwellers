@@ -2,7 +2,7 @@ import React from "react";
 import CategoryCard from "./CategoryCard";
 
 export default function CategoryGrid() {
-  const bgCommon = "/images/categoryBackground1.png"; // common background for all cards
+  const bgCommon = "/images/categoryBackground.png"; // common background for all cards
   const items = [
     { title: "Necklaces", img: "/images/necklace1.png" },
     { title: "Rings", img: "/images/rings1.png" },
